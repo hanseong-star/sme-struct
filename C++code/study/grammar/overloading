@@ -1,0 +1,29 @@
+같은 함수 이름을 매개변수의 타입/개수에 
+따라 여러 버전으로 만든것
+
+데이터 타입이 달라도 같은 행위를 하나의 이름으로 제공
+
+기본 규칙
+1. 매개변수 목록이 달라야 함.
+2. 반환형만 다른 건 오버로딩이 아님
+3. 기본 인자(default argument) 떄문에 모호해질 수 있음
+
+ex)
+#include <iostream>
+using namespace std;
+
+void print(int x) { cout << "int:" << x << "\n"};
+void print(double x) { cout << "double:" << x << "\n"};
+void print(string s) { cout << "string:" << s << "\n"};
+
+int main() {
+    print(10);
+    print(3.14);
+    print("hi"s);  #s를 붙이지 않으면 const char*로 받게됨
+}
+
+주의할 점
+int toint(double x);
+double toint(double x);
+매개변수 같고 반환형만 다르면 에러 발생
+
